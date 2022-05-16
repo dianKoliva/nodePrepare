@@ -9,4 +9,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
     service.register(req, res);
 })
+router.get("/:id", (req, res) => {
+    service.getOne(req, res);
+})
 module.exports = router;
