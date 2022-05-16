@@ -12,4 +12,11 @@ router.post("/", (req, res) => {
 router.get("/:id", (req, res) => {
     service.getOne(req, res);
 })
+router.delete("/:id", (req, res) => {
+    service.deleteOne(req, res);
+})
+router.delete("/", (req, res) => {
+    service.deleteMany(req, res)
+})
+
 module.exports = router;

@@ -41,8 +41,8 @@ exports.getOne = (req, res) => {
     Student.findById(req.params.id)
         .then((result) => {
             if (result != null) {
-                res.json({ result: result });
-                res.status(200)
+                res.status(200).json({ result: result });
+
             } else {
                 res.status(400).json({ result: "not found" })
 
@@ -52,5 +52,34 @@ exports.getOne = (req, res) => {
         .catch((err) => {
             res.status(500).json({ err: err });
 
+        })
+}
+exports.deleteOne = (req, res) => {
+
+    Student.findById(req.params.id)
+        .then((result) => {
+            if (result == null) {
+                res.status(400).json({ result: "not found" })
+
+            } else {
+                Student.deleteOne({ _id: req.params.id })
+                    .then(() => {
+                        res.status(200).json({ result: "deleted" })
+                    })
+                    .catch((err) => {
+                        res.status(500).json({ err: err })
+                    })
+            }
+        })
+}
+
+exports.deleteMany = (req, res) => {
+
+    Student.deleteMany({})
+        .then(() => {
+            res.status(200).json({ result: "all deleted" })
+        })
+        .catch((err) => {
+            res.status(500).json({ err: err })
         })
 }
