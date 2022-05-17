@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const service = require("../service/StudentService")
+const checker = require("../middleware/check")
 
-router.get("/", (req, res) => {
+router.get("/", checker, (req, res) => {
 
     service.getStudents(req, res);
 })
 
 router.post("/login", (req, res) => {
-
     service.login(req, res);
 })
 
 router.post("/", (req, res) => {
-    console.log("in here");
+
     service.register(req, res);
 })
 router.get("/:id", (req, res) => {

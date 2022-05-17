@@ -2,6 +2,7 @@ const Student = require("../schemas/Student");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+
 exports.getStudents = (req, res) => {
 
     Student.find()
@@ -66,7 +67,7 @@ exports.login = (req, res) => {
 
                     const token = jwt.sign({ name: user.name, email: user.email, id: user._id },
                         process.env.TOKEN_KEY, {
-                            expiresIn: "2h",
+                            expiresIn: "3h",
                         }
                     );
                     res.status(200).json({ message: "loged in", token: token })
