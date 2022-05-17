@@ -4,6 +4,7 @@ const express = require('express');
 const app = require("..");
 
 const { getOne } = require("../service/StudentService")
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsIiwiaWQiOiI2Mjg0MDMxMTQ1YjAwYzVkZGU1OTE5MmEiLCJpYXQiOjE2NTI4MTk4MDksImV4cCI6MTY1Mjg0MTQwOX0.kIjFQAG7O9kTik37GW7NE_sOzNNakifnwtInaOWCCdA"
 
 
 
@@ -11,6 +12,7 @@ describe("Student testing", () => {
     it('Get all students', () => {
         request(app)
             .get("/student")
+            .set({ authorization: token })
             .expect('Content-Type', /json/)
             .expect(200)
     })

@@ -12,7 +12,7 @@ router.post("/login", (req, res) => {
     service.login(req, res);
 })
 
-router.post("/", (req, res) => {
+router.post("/", checker, (req, res) => {
 
     service.register(req, res);
 })

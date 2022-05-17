@@ -17,6 +17,6 @@ app.use("/student", student)
 
 
 app.listen(process.env.PORT || 400, () => {
-    console.log(`Listening on port ${process.env.PORT||400}`);
+    // console.log(`Listening on port ${process.env.PORT||400}`);
 })
 module.exports = app
