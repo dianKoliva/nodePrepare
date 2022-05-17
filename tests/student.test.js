@@ -1,7 +1,8 @@
 const request = require('supertest');
 const assert = require('assert');
 const express = require('express');
-const app = require("..");
+const app = require("../index");
+const utils = require("../utils/util")
 
 const { getOne } = require("../service/StudentService")
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsIiwiaWQiOiI2Mjg0MDMxMTQ1YjAwYzVkZGU1OTE5MmEiLCJpYXQiOjE2NTI4MTk4MDksImV4cCI6MTY1Mjg0MTQwOX0.kIjFQAG7O9kTik37GW7NE_sOzNNakifnwtInaOWCCdA"
@@ -50,3 +51,9 @@ describe("Student testing", () => {
 //         await expect(createToken({ amount: 200, meter: 123456 })).toStrictEqual("generated");
 //     })
 // })
+
+describe("for utils", () => {
+    it("should say hi", () => {
+        expect(utils.sayHi()).toBe("hello pipo")
+    })
+})
