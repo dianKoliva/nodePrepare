@@ -3,7 +3,7 @@ const router = express.Router();
 const service = require("../service/StudentService")
 const checker = require("../middleware/check")
 
-router.get("/", checker, (req, res) => {
+router.get("/", (req, res) => {
 
     service.getStudents(req, res);
 })
@@ -12,10 +12,15 @@ router.post("/login", (req, res) => {
     service.login(req, res);
 })
 
-router.post("/", checker, (req, res) => {
+router.post("/", (req, res) => {
 
-    service.register(req, res);
-})
+
+        service.register(req, res);
+    })
+    // router.post("/", checker, (req, res) => {
+
+//     service.register(req, res);
+// })
 router.get("/:id", (req, res) => {
     service.getOne(req, res);
 })

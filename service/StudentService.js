@@ -36,7 +36,7 @@ exports.register = async(req, res) => {
 
                 newStudent.save()
                     .then((result) => {
-                        res.status(200).json({ result: result, message: "saved" });
+                        res.status(200).json({ result: "saved" });
 
                     })
                     .catch((err) => {
